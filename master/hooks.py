@@ -6,6 +6,8 @@ app_email = "bk2671111@gmail.com"
 app_license = "mit"
 # required_apps = []
 
+# fixture
+
 # Includes in <head>
 # ------------------
 

@@ -6,24 +6,25 @@ frappe.ui.form.on("District", {
         frm.fields_dict["state"].get_query = function (doc) {
             return {
                 filters: {
-                    "state": 'Please select state',
+                    "country": 'Please select country',
                 },
             };
         }
 	},
-    dis:function (frm) {
-        frm.fields_dict["district"].get_query = function (doc) {
-            if (doc.state) {
+
+    country:function (frm) {
+        frm.fields_dict["state"].get_query = function (doc) {
+            if (doc.country) {
                 return {
                     filters: {
-                        "state": doc.state,
+                        "country": doc.country,
                     },
                 };
             } else {
-                return { filters: { "state": 'Please select state', }, };
+                return { filters: { "country": 'Please select country', }, };
             }
 
         },
-            frm.set_value('district', '')
+            frm.set_value('state', '')
     }
 });

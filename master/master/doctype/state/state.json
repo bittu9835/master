@@ -7,8 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "country",
-  "name1",
-  "id"
+  "name1"
  ],
  "fields": [
   {
@@ -21,13 +20,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "id",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Id",
-   "reqd": 1
-  },
-  {
    "fieldname": "name1",
    "fieldtype": "Data",
    "label": "Name",
@@ -37,7 +29,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-22 16:23:05.919770",
+ "modified": "2023-12-25 10:41:38.181774",
  "modified_by": "Administrator",
  "module": "Master",
  "name": "State",

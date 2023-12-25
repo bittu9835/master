@@ -2,28 +2,54 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Block", {
-	refresh(frm) {
-        frm.fields_dict["district"].get_query = function (doc) {
+    refresh(frm) {
+        frm.fields_dict["state"].get_query = function (doc) {
             return {
                 filters: {
-                    "district": 'Please select district',
+                    "country": 'Please select country',
                 },
             };
         }
-	},
-    blo:function (frm) {
-        frm.fields_dict["block"].get_query = function (doc) {
-            if (doc.district) {
+        frm.fields_dict["district"].get_query = function (doc) {
+            return {
+                filters: {
+                    "state": 'Please select state',
+                },
+            };
+        }
+    },
+    country: function (frm) {
+        frm.fields_dict["state"].get_query = function (doc) {
+            if (doc.country) {
                 return {
                     filters: {
-                        "district": doc.district,
+                        "country": doc.country,
                     },
                 };
             } else {
-                return { filters: { "district": 'Please select district', }, };
+                return { filters: { "country": 'Please select country', }, };
             }
 
         },
-            frm.set_value('block', '')
+            frm.fields_dict["district"].get_query = function (doc) {
+                // if(doc.district ==''){
+                //     frappe.show_alert({message:'District not found',indicator:'yellow'})
+                // }
+                if (doc.state) {
+                    return {
+                        filters: {
+                            "state": doc.state,
+                        },
+                    };
+                } else {
+                    return { filters: { "state": 'Please select state', }, };
+                }
+
+            },
+            frm.set_value('state', '')
+        frm.set_value('district', '')
+    },
+    state: function (frm) {
+        frm.set_value('district', '')
     }
 });
